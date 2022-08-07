@@ -16,6 +16,8 @@ public class Speaker {
     private String title;
     private String company;
     private String speaker_bio;
+    @ManyToMany(mappedBy = "speakers")
+    private List<Session> sessions;
 
     @Lob
     @Type(type="org.hibernate.type.BinaryType")
@@ -29,7 +31,6 @@ public class Speaker {
         this.speaker_photo = speaker_photo;
     }
 
-    @ManyToMany(mappedBy = "speakers")
     public List<Session> getSessions() {
         return sessions;
     }
@@ -37,8 +38,6 @@ public class Speaker {
     public void setSessions(List<Session> sessions) {
         this.sessions = sessions;
     }
-
-    private List<Session> sessions;
 
     public Speaker() {
     }

@@ -12,13 +12,13 @@ public class Session {
     private String session_description;
     private Integer session_length;
 
-    private List<Speaker> speakers;
-
     @ManyToMany
     @JoinTable(
             name = "session_speakers",
             joinColumns = @JoinColumn(name = "session_id"),
             inverseJoinColumns = @JoinColumn(name = "speaker_id"))
+    private List<Speaker> speakers;
+
     public List<Speaker> getSpeakers() {
         return speakers;
     }
